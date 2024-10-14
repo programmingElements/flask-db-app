@@ -1,0 +1,93 @@
+#main-header {
+  background-color: rgb(225, 220, 220);
+  color: black;
+  font-style: italic;
+  font-weight: 400;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
+}
+
+#root {
+  background-color: rgb(104, 104, 229);
+  padding: 10px;
+  color: white;
+}
+
+#root h1 {
+  color: red;
+}
+
+#root p {
+  color: aqua;
+  font-size: larger;
+}
+
+#form-container {
+  margin-top: 20px;
+  width: 300px;
+}
+
+#form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-container form input {
+  padding: 5px 10px;
+}
+
+a {
+  background-color: rgb(44, 175, 7);
+  color: coral;
+  padding: 10px;
+  position: relative;
+  top: 10px;
+  text-decoration: none;
+  font-size: large;
+}
+
+#home-content {
+  background-color: rgb(21, 123, 211);
+  color: white;
+  padding: 10px;
+}
+
+#home-filter {
+  background-color: rgb(8, 215, 94);
+  padding: 10px 20px;
+}
+
+#employee-form {
+  width: 100%;
+}
+
+#employee-form h1 {
+  background-color: rgb(231, 149, 62);
+  color: white;
+  padding: 2px;
+}
+
+#employee-form form {
+  width: 20%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#employee-form form input {
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#employee-form form input[type=submit] {
+  background: none;
+  outline: none;
+  border: none;
+  background-color: rgb(63, 226, 63);
+  font-size: larger;
+  font-weight: 600;
+  color: white;
+}

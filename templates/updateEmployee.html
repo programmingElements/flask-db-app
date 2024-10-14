@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Update Employee {% endblock %}
+
+
+{% block content %}
+
+<div id="employee-form">
+  <h1> Hello, Update Employee </h1>
+  <p>{{emp_id}}</p>
+
+  <form action="{{url_for('update_employee', emp_id=emp_id)}}" method="post">
+    <input type="hidden" name="id" value="{{employee.0}}">
+    <input type="text" name="emp_name" placeholder="Employee Name" value="{{employee.1}}">
+    <input type="text" name="emp_mail" placeholder="Employee Email" value="{{employee.2}}">
+    <input type="text" name="emp_sal" placeholder="Employee Salary" value="{{employee.3}}">
+    <input type="text" name="emp_city" placeholder="Employee City" value="{{employee.4}}">
+    <input type="submit" value="EDIT">
+  </form>
+</div>
+
+{% endblock %}

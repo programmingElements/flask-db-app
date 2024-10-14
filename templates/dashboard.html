@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard Page {% endblock %}
+
+
+{% block content %}
+
+  <h1>Hello, Dashboard </h1>
+  <p>{{ message }}</p>
+
+  <a href="{{ url_for('set_data') }}">Set Session Data.</a>
+  <a href="{{ url_for('get_data') }}">Get Session Data.</a>
+  <a href="{{url_for('clear_session')}}">Clear Session Data.</a>
+
+  <a href="{{url_for('set_cookie')}}">Set Cookie.</a>
+  <a href="{{url_for('get_cookie')}}">Get Cookie.</a>
+  <a href="{{url_for('remove_cookie')}}">Remove Cookie.</a>
+  <a href="{{url_for('login')}}">Login</a>
+{% endblock %}

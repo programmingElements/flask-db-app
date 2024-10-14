@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} Get Employees {% endblock %}
+
+
+{% block content %}
+
+  <h1>Hello, Employees </h1>
+  <a href="{{url_for('add_employee')}}">ADD EMPLOYEE</a>
+
+  <br>
+  <br>
+
+  {% if employees | length > 0 %}
+    <table border="2">
+      <tr>
+        <th>Serial</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+      {% for employee in employees %}
+
+        <tr>
+          <td>{{employee.0}}</td>
+          <td>{{employee.1}}</td>
+          <td>{{employee.2}}</td>
+          <td>{{employee.3}}</td>
+          <td>{{employee.4}}</td>
+          <td>
+            <a href="{{url_for('update_employee', emp_id=employee.0)}}" style="background:none;color:blueviolet; top:4px;cursor: pointer;">EDIT</a>
+            <a href="{{url_for('delete_employee', emp_id=employee.0)}}" style="background:none; color: red; top:4px;cursor: pointer;">DELETE</a>
+          </td>
+        </tr>
+
+      {% endfor %}
+
+    </table>  
+  {% else %}
+    <p>No Employees Found!</p>
+  {% endif %}
+
+{% endblock %}

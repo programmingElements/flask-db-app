@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+
+{% block content %}
+
+  <div id="home-content">
+    <h1>Welcome to Python Home Page</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, eligendi dignissimos sint distinctio ea rem consequatur, harum incidunt quos perferendis consequuntur facere. Recusandae tempore eius quod similique exercitationem vitae esse voluptatum mollitia obcaecati unde alias, iure inventore tenetur at commodi delectus! Unde architecto esse rerum ratione est ab sit pariatur asperiores, consequatur, dolor accusamus commodi, dolore sequi reiciendis? Ea vero exercitationem explicabo recusandae distinctio. Vero.</p>
+  </div>
+  <div>
+    <img src="{{ url_for('static', filename='/img/logo.jpeg') }}" alt="Image">
+  </div>
+
+  <div id="home-filter">
+    
+  <h2>Filters</h2>
+
+  <p>1. {{some_text}}</p>
+
+  <p>2. {{some_text | upper }}</p>
+
+  <p>3. {{some_text | lower }}</p>
+
+  <p>4. {{ some_text | title }}</p>
+
+  <p>5. {{ some_text | capitalize }}</p>
+
+  <p>6. {{ some_text | replace('l', 'L') }}</p>
+
+  <p>7. {{ some_text | reverse_string }}</p>
+
+  <p>8. {{ some_text | repeat }}</p>
+
+  <p>9. {{ some_text | repeat(6)}}</p>
+
+  <p>10. {{ some_text | alternate_case }}</p>
+  </div>
+
+
+{% endblock %}
