@@ -8,11 +8,22 @@ from flask_mysqldb import MySQL
 app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/')
 app.secret_key = 'SOMECONTENTKEY'
 
+database_host = os.environ.get('DATABASE_HOST')
+database_user = os.environ.get('DATABASE_USER')
+database_password = os.environ.get('DATABASE_PASSWORD')
+database_db = os.environ.get('DATABASE_DB')
+
 # Database Connectivity
-app.config['MYSQL_HOST'] = 'database-1.c1asso82qaoo.ap-south-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'admin'
-app.config['MYSQL_PASSWORD'] = 'Mkrishna*672'
-app.config['MYSQL_DB'] = 'flaskdbapp'
+# app.config['MYSQL_HOST'] = 'database-1.c1asso82qaoo.ap-south-1.rds.amazonaws.com'
+# app.config['MYSQL_USER'] = 'admin'
+# app.config['MYSQL_PASSWORD'] = 'Mkrishna*672'
+# app.config['MYSQL_DB'] = 'flaskdbapp'
+
+app.config['MYSQL_HOST'] = database_host
+app.config['MYSQL_USER'] = database_user
+app.config['MYSQL_PASSWORD'] = database_password
+app.config['MYSQL_DB'] = database_db
+
 
 mysql = MySQL(app)
 
