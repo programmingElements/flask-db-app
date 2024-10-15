@@ -1,4 +1,4 @@
-# Simple Flask Application
+# Flask Application With MySQL DB
 
   Flask Installation Guide and Docs : https://flask.palletsprojects.com/en/3.0.x/installation/#python-version
 
