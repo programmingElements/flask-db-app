@@ -140,3 +140,107 @@ create table employees (
 );
 select * from employees;
 
+
+
+## Deploy App in Docker 
+
+   ============================================================================
+     Dockerizing a real-world web application [Flask App with MySQL DB]
+   =============================================================================
+     
+     Github Repository : https://github.com/programmingElements/flask-db-app.git
+  
+  1. Clone the Flask Project from Github Repository
+
+     $ git clone https://github.com/programmingElements/flask-db-app.git
+
+     $ cd flask-db-app
+
+  2. Download the MySQL docker image from the docker registry
+
+     $ docker image pull mysql
+
+  3. Create a docker volume for mysql image
+
+     $ docker volume --help
+
+     $ docker volume create mydata
+
+     $ docker volume ls
+
+  4. Create a docker network form mysql image and flask app 
+
+     $ docker network --help
+
+     $ docker network create employee-network
+
+     $ docker network ls
+
+  5. Run the MySQL Database with environment variables from mysql docker image
+
+     $ docker container --help
+
+     $ docker container run --rm --name=dev-mysql -v mydata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Mkrishna123 -e MYSQL_DATABASE=flaskdbapp --network=employee-network -d mysql
+
+     $ docker container ls 
+
+     $ docker container ls -a
+
+  6. Go to the employee-app Docker Container using interative mode execute some commands
+
+     $ docker container inspect dev-mysql [ To collect the ip-address of mysql db container ]
+
+     $ docker exec -it dev-mysql /bin/bash
+
+     root@2aff1f2b2a3c:/app# ifconfig
+
+     root@2aff1f2b2a3c:/app# mysql -h ip-address -P 3306 -u root -pMkrishna123
+
+                         (or)
+
+     root@2aff1f2b2a3c:/app# mysql -h ip-address -u root -pMkrishna123
+
+     mysql> show databases;
+
+     mysql> use flaskdbapp;
+
+     mysql> create table employees (emp_id int NOT NULL AUTO_INCREMENT,emp_name varchar(255),emp_mail varchar(255) NOT NULL,emp_sal int,emp_city varchar(255),PRIMARY KEY (emp_id));
+
+     mysql> show tables;
+
+     mysql> select * from employees;
+
+     mysql> help
+
+     mysql> quit
+
+     root@2aff1f2b2a3c:/app# exit
+
+  7. Build the docker image [ flask-app-db ]
+
+     $ cd flask-app-db
+
+     $ docker image build -t employee-app:1.0 .
+
+     $ docker image ls
+
+  8. Run the Docker Container using Docker Image [employee-app:1.0]
+
+     $ docker container run --rm -p 5000:5000 -e DATABASE_HOST=dev-mysql -e DATABASE_USER=root -e DATABASE_PASSWORD=Mkrishna123 -e DATABASE_DB=flaskdbapp --network=employee-network -d employee-app:1.0
+
+     $ docker container ls (or) docker ps
+
+  9. Run the application in web browser using ip-address and port number
+
+     http://localhost:5000/
+
+  10. To the stop the docker containers
+
+      $ docker container stop 2aff1f2b2a3c
+
+      $ docker container stop dev-postgres
+
+
+  11. Again the run the docker containers of postgresql and library-app.
+
+     Note: Test the app existing books are present or not.
